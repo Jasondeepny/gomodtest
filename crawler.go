@@ -3,13 +3,13 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"log"
-	"net/http"
 	"github.com/PuerkitoBio/goquery"
 	_ "github.com/go-sql-driver/mysql"
+	"log"
+	"net/http"
 )
 
-func main()  {
+func main() {
 
 	sql_connect := "root:123456@tcp(127.0.0.1:3306)/test"
 	db, err := sql.Open("mysql", sql_connect)
@@ -30,7 +30,7 @@ func main()  {
 		}
 		doc.Find("section div").Each(func(i int, s *goquery.Selection) {
 			word := s.Text()
-			fmt.Printf("Review : %s \n", word)
+			fmt.Printf("Review : 第%d条，文字为:%s\n", i, word)
 			sqlstr := "INSERT INTO chicken(word) VALUE (?)"
 			ret, err := db.Exec(sqlstr, word)
 			if err != nil {
@@ -39,7 +39,5 @@ func main()  {
 			fmt.Printf("成功插入:%d\n", ret)
 		})
 	}
-
-
 
 }
