@@ -7,19 +7,19 @@ import (
 	"time"
 )
 
-func main() {
-	soceMap := make(map[string]int)
-	soceMap["小明"] = 90
-	soceMap["小丽"] = 100
-	soceMap["小在"] = 20
-	delete(soceMap, "xiao")
-	for k, v := range soceMap {
-		fmt.Println(k, v)
-	}
-
-	mapSort()
-
-}
+//func main() {
+//	soceMap := make(map[string]int)
+//	soceMap["小明"] = 90
+//	soceMap["小丽"] = 100
+//	soceMap["小在"] = 20
+//	delete(soceMap, "xiao")
+//	for k, v := range soceMap {
+//		fmt.Println(k, v)
+//	}
+//
+//	mapSort()
+//
+//}
 
 func mapSort() {
 	rand.Seed(time.Now().UnixNano())

@@ -7,11 +7,11 @@ import (
 
 var bb = true
 
-func main() {
-	_, numb, strs, e := number()
-	fmt.Println(e, numb, strs)
-	//angle()
-}
+//func main() {
+//	_, numb, strs, e := number()
+//	fmt.Println(e, numb, strs)
+//	//angle()
+//}
 
 func number() (int, int, int, bool) {
 	a, b, c, bb := 1, 2, 3, false

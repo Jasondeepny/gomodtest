@@ -7,192 +7,190 @@ import (
 	"os"
 )
 
-func main()  {
+//func main()  {
+//
+//	var p1 person
+//	p1.name = "小明"
+//	p1.age = 18
+//	p1.city = "北京"
+//	p1.money = 3000.0
+//
+//	var p2 = new(person)
+//	p2.name = ""
+//
+//	p3 := &person{
+//		name: "jj",
+//		age: 12,
+//		city: "beijing",
+//	}
+//	p3.name = "沙哈" //p3.name = “博客” 其实在底层是(*p3).name = “博客”
 
-	var p1 person
-	p1.name = "小明"
-	p1.age = 18
-	p1.city = "北京"
-	p1.money = 3000.0
+//fmt.Printf("p3 = %#v\n",p3)
 
-	var p2 = new(person)
-	p2.name = ""
+//fmt.Printf("p1 = %v\n",p1)
+//fmt.Printf("p1 = %+v\n",p1)
+//fmt.Printf("p1 = %#v\n" ,p1)
+//
+//var user struct{name string; age int}
+//user.name = "小虎"
+//user.age = 13
+//fmt.Printf("user = %+v",user)
 
-	p3 := &person{
-		name: "jj",
-		age: 12,
-		city: "beijing",
-	}
-	p3.name = "沙哈" //p3.name = “博客” 其实在底层是(*p3).name = “博客”
+//p4 := newPerson("xix","shanghai",18)
+//fmt.Println(p4.age)
+//fmt.Printf("%#v",p4)
 
+//p5 := newPerson("hah","nanjing",12)
+//p5.SetAge2(23)
+//fmt.Println(p5.age)
+//fmt.Printf("%#v\n",p5)
+//
+//p5.setAge(24)
+//fmt.Println(p5.age)
+//fmt.Printf("%#v\n",p5)
 
-	//fmt.Printf("p3 = %#v\n",p3)
+//dog := Dog{
+//	feet: "21",
+//	Animal: &Animal{
+//		name: "旺财",
+//	},
+//}
+//dog.move()
+//dog.wang()
+//fmt.Printf("这个 一个dog 示例 %#v", dog)
 
-	//fmt.Printf("p1 = %v\n",p1)
-	//fmt.Printf("p1 = %+v\n",p1)
-	//fmt.Printf("p1 = %#v\n" ,p1)
-	//
-	//var user struct{name string; age int}
-	//user.name = "小虎"
-	//user.age = 13
-	//fmt.Printf("user = %+v",user)
+//class01 := Class{
+//	Title: "一年级",
+//	Students: []*Student{
+//		{
+//			ID:     1,
+//			Gender: "男",
+//			Name:   "小明",
+//					},
+//		{
+//			ID:     2,
+//			Gender: "女",
+//			Name:   "小丽",
+//					},
+//	},
+//}
+//data, err := json.Marshal(class01)
+//fmt.Printf("json:%s\n", data)
+//fmt.Printf("class one 的信息%+v,学生信息%+v\n",class01,class01.Students[:1])
+//for _, student := range class01.Students {
+//	if student.Name == "小丽" {
+//		fmt.Printf("学生小丽%+v",*student)
+//	}
+//}
+//str := `{"Title":"101","Students":[{"ID":0,"Gender":"男","Name":"stu00"},{"ID":1,"Gender":"男","Name":"stu01"},{"ID":2,"Gender":"男","Name":"stu02"},{"ID":3,"Gender":"男","Name":"stu03"},{"ID":4,"Gender":"男","Name":"stu04"},{"ID":5,"Gender":"男","Name":"stu05"},{"ID":6,"Gender":"男","Name":"stu06"},{"ID":7,"Gender":"男","Name":"stu07"},{"ID":8,"Gender":"男","Name":"stu08"},{"ID":9,"Gender":"男","Name":"stu09"}]}`
+//c1 := &Class{}
+//err = json.Unmarshal([]byte(str), c1)
+//if err != nil {
+//	fmt.Println("json unmarshal failed!")
+//	return
+//}
+//fmt.Printf("%#v\n", c1)
 
-	//p4 := newPerson("xix","shanghai",18)
-	//fmt.Println(p4.age)
-	//fmt.Printf("%#v",p4)
+//ce := []student{
+//	student{1, "xiaoming", 22},
+//	student{2, "xiaozhang", 33},
+//}
+//fmt.Println(ce)
+//demo(&ce)
+//fmt.Println(ce)
 
-	//p5 := newPerson("hah","nanjing",12)
-	//p5.SetAge2(23)
-	//fmt.Println(p5.age)
-	//fmt.Printf("%#v\n",p5)
-	//
-	//p5.setAge(24)
-	//fmt.Println(p5.age)
-	//fmt.Printf("%#v\n",p5)
+//var c1, c2, c3 chan int
+//var i1, i2 int
+//select {
+//case i1 = <-c1:
+//	fmt.Printf("received ", i1, " from c1\n")
+//case c2 <- i2:
+//	fmt.Printf("sent ", i2, " to c2\n")
+//case i3, ok := <-c3: // same as: i3, ok := <-c3
+//	if ok {
+//		fmt.Printf("received ", i3, " from c3\n")
+//	} else {
+//		fmt.Printf("c3 is closed\n")
+//	}
+//default:
+//	fmt.Printf("no communication\n")
+//}
 
-	//dog := Dog{
-	//	feet: "21",
-	//	Animal: &Animal{
-	//		name: "旺财",
-	//	},
-	//}
-	//dog.move()
-	//dog.wang()
-	//fmt.Printf("这个 一个dog 示例 %#v", dog)
+//a := [3]int{0, 1, 2}
+//for i, v := range a { // index、value 都是从复制品中取出。
+//	fmt.Printf("v值%d\n",v)
+//	//if i == 0 { // 在修改前，我们先修改原数组。
+//		a[1], a[2] = 999, 999
+//		//fmt.Println(a) // 确认修改有效，输出 [0, 999, 999]。
+//	//}
+//	a[i] = v + 100 // 使用复制品中取出的 value 修改原数组。
+//	fmt.Println(a)
+//}
+//arrays(a)
+//fmt.Println(a)
+//
+//s := []int{1, 2, 3, 4, 5}
+//
+//for i, v := range s { // 复制 struct slice { pointer, len, cap }。
+//	if i == 0 {
+//		s = s[:3]  // 对 slice 的修改，不会影响 range。
+//		s[2] = 100 // 对底层数据的修改。
+//	}
+//	println(i, v)
+//	fmt.Println(s)
+//}
+//fmt.Println(s)
 
-	//class01 := Class{
-	//	Title: "一年级",
-	//	Students: []*Student{
-	//		{
-	//			ID:     1,
-	//			Gender: "男",
-	//			Name:   "小明",
-	//					},
-	//		{
-	//			ID:     2,
-	//			Gender: "女",
-	//			Name:   "小丽",
-	//					},
-	//	},
-	//}
-	//data, err := json.Marshal(class01)
-	//fmt.Printf("json:%s\n", data)
-	//fmt.Printf("class one 的信息%+v,学生信息%+v\n",class01,class01.Students[:1])
-	//for _, student := range class01.Students {
-	//	if student.Name == "小丽" {
-	//		fmt.Printf("学生小丽%+v",*student)
-	//	}
-	//}
-	//str := `{"Title":"101","Students":[{"ID":0,"Gender":"男","Name":"stu00"},{"ID":1,"Gender":"男","Name":"stu01"},{"ID":2,"Gender":"男","Name":"stu02"},{"ID":3,"Gender":"男","Name":"stu03"},{"ID":4,"Gender":"男","Name":"stu04"},{"ID":5,"Gender":"男","Name":"stu05"},{"ID":6,"Gender":"男","Name":"stu06"},{"ID":7,"Gender":"男","Name":"stu07"},{"ID":8,"Gender":"男","Name":"stu08"},{"ID":9,"Gender":"男","Name":"stu09"}]}`
-	//c1 := &Class{}
-	//err = json.Unmarshal([]byte(str), c1)
-	//if err != nil {
-	//	fmt.Println("json unmarshal failed!")
-	//	return
-	//}
-	//fmt.Printf("%#v\n", c1)
+//c := a()
+//c()
+//fmt.Println(a()())
+//
+//tmp := ads(10)
+//fmt.Println(tmp(1),tmp(2))
 
-	//ce := []student{
-	//	student{1, "xiaoming", 22},
-	//	student{2, "xiaozhang", 33},
-	//}
-	//fmt.Println(ce)
-	//demo(&ce)
-	//fmt.Println(ce)
+//temp01,temp02 := test01(10)
+//fmt.Println(temp02(1),temp01(1))
+//
+//var whatever [5]struct{}
+//for i := range whatever {
+//	defer func() {
+//		fmt.Println(i)
+//	}()
+//}
+//
+//var a = 1
+//var b = 2
+//
+//defer func(a int, b int) {
+//	fmt.Println(a + b)
+//}(a, b)
+//a = 2
+//fmt.Println("main")
+//
+//test()
+//i, err := foo(2, 0)
+//if err != nil {
+//	//panic(err)
+//}
+//fmt.Println(i)
 
+//fmt.Println(f())
+//fmt.Println(f1())
+//fmt.Println(f2())
+//fmt.Println(f3())
+//test05()
+//chanClose()
 
-	//var c1, c2, c3 chan int
-	//var i1, i2 int
-	//select {
-	//case i1 = <-c1:
-	//	fmt.Printf("received ", i1, " from c1\n")
-	//case c2 <- i2:
-	//	fmt.Printf("sent ", i2, " to c2\n")
-	//case i3, ok := <-c3: // same as: i3, ok := <-c3
-	//	if ok {
-	//		fmt.Printf("received ", i3, " from c3\n")
-	//	} else {
-	//		fmt.Printf("c3 is closed\n")
-	//	}
-	//default:
-	//	fmt.Printf("no communication\n")
-	//}
+//test12(2,1)
+//test11()
+//errtest()
 
-	//a := [3]int{0, 1, 2}
-	//for i, v := range a { // index、value 都是从复制品中取出。
-	//	fmt.Printf("v值%d\n",v)
-	//	//if i == 0 { // 在修改前，我们先修改原数组。
-	//		a[1], a[2] = 999, 999
-	//		//fmt.Println(a) // 确认修改有效，输出 [0, 999, 999]。
-	//	//}
-	//	a[i] = v + 100 // 使用复制品中取出的 value 修改原数组。
-	//	fmt.Println(a)
-	//}
-	//arrays(a)
-	//fmt.Println(a)
-	//
-	//s := []int{1, 2, 3, 4, 5}
-	//
-	//for i, v := range s { // 复制 struct slice { pointer, len, cap }。
-	//	if i == 0 {
-	//		s = s[:3]  // 对 slice 的修改，不会影响 range。
-	//		s[2] = 100 // 对底层数据的修改。
-	//	}
-	//	println(i, v)
-	//	fmt.Println(s)
-	//}
-	//fmt.Println(s)
-
-	//c := a()
-	//c()
-	//fmt.Println(a()())
-	//
-	//tmp := ads(10)
-	//fmt.Println(tmp(1),tmp(2))
-
-	//temp01,temp02 := test01(10)
-	//fmt.Println(temp02(1),temp01(1))
-	//
-	//var whatever [5]struct{}
-	//for i := range whatever {
-	//	defer func() {
-	//		fmt.Println(i)
-	//	}()
-	//}
-	//
-	//var a = 1
-	//var b = 2
-	//
-	//defer func(a int, b int) {
-	//	fmt.Println(a + b)
-	//}(a, b)
-	//a = 2
-	//fmt.Println("main")
-	//
-	//test()
-	//i, err := foo(2, 0)
-	//if err != nil {
-	//	//panic(err)
-	//}
-	//fmt.Println(i)
-
-	//fmt.Println(f())
-	//fmt.Println(f1())
-	//fmt.Println(f2())
-	//fmt.Println(f3())
-	//test05()
-	//chanClose()
-
-	//test12(2,1)
-	test11()
-	//errtest()
-
-	//Try(func() {
-	//	panic("this is err")
-	//}, func(err interface{}) {
-	//	fmt.Println(err)
-	//})
-}
+//Try(func() {
+//	panic("this is err")
+//}, func(err interface{}) {
+//	fmt.Println(err)
+//})
+//}
 
 func Try(fun func(), handler func(interface{})) {
 	defer func() {
@@ -209,10 +207,10 @@ func test12(x, y int) {
 	fmt.Printf("x / y = %d\n", z)
 }
 
-func errtest()  {
+func errtest() {
 	defer func() {
 		//if recover() != nil {
-			fmt.Println(recover())
+		fmt.Println(recover())
 		//}
 	}()
 	panic("test panic")
@@ -229,7 +227,6 @@ func chanClose() {
 	close(ch)
 	ch <- 1
 }
-
 
 func test11() {
 	defer func() {
@@ -271,7 +268,6 @@ func test09() {
 	}()
 	panic("panic error!")
 }
-
 
 func do02() error {
 	f, err := os.Open("book.txt")
@@ -321,8 +317,6 @@ func do01() (err error) {
 	return nil
 }
 
-
-
 func do() error {
 	res, err := http.Get("http://www.google.com")
 	defer res.Body.Close()
@@ -364,13 +358,13 @@ func f2() (r int) {
 }
 
 func f3() (r int) {
-	  //给返回值赋值
+	//给返回值赋值
 	r = 1
-	func(r int) {        //这里改的r是传值传进去的r，不会改变要返回的那个r值
+	func(r int) { //这里改的r是传值传进去的r，不会改变要返回的那个r值
 		r = r + 5
 		fmt.Println(r)
 	}(r)
-	return        //空的return
+	return //空的return
 }
 
 func foo(a, b int) (i int, err error) {
@@ -384,7 +378,6 @@ func foo(a, b int) (i int, err error) {
 	i = a / b
 	return
 }
-
 
 func test() {
 	x, y := 10, 20
@@ -425,9 +418,9 @@ func a() func() int {
 	return b
 }
 
-func arrays(a [3]int)  {
+func arrays(a [3]int) {
 	for i, v := range a { // index、value 都是从复制品中取出。
-		fmt.Printf("v值%d\n",v)
+		fmt.Printf("v值%d\n", v)
 		//if i == 0 { // 在修改前，我们先修改原数组。
 		a[1], a[2] = 999, 999
 		//fmt.Println(a) // 确认修改有效，输出 [0, 999, 999]。
@@ -436,7 +429,6 @@ func arrays(a [3]int)  {
 		fmt.Println(a)
 	}
 }
-
 
 type student struct {
 	id   int
@@ -451,7 +443,7 @@ func demo(ce *[]student) {
 	//}
 
 	(*ce)[0].age = 999
-	fmt.Printf("ce %+v\n",*ce)
+	fmt.Printf("ce %+v\n", *ce)
 	// ce = append(ce, student{3, "xiaowang", 56})
 	// return ce
 }
@@ -462,7 +454,7 @@ type Student struct {
 	Name   string
 }
 
-//Class 班级
+// Class 班级
 type Class struct {
 	Title    string
 	Students []*Student
@@ -477,27 +469,25 @@ type Dog struct {
 	*Animal
 }
 
-func (d Dog) wang()  {
-	fmt.Printf("这是 dog的方法 %+v\n",d)
+func (d Dog) wang() {
+	fmt.Printf("这是 dog的方法 %+v\n", d)
 }
 
-func (a Animal) move()  {
-	fmt.Printf("这是animal 的方法 %+v\n",a)
+func (a Animal) move() {
+	fmt.Printf("这是animal 的方法 %+v\n", a)
 }
 
-
-func (p *person) setAge(newAge int)  {
+func (p *person) setAge(newAge int) {
 	p.age = newAge
-	fmt.Printf("指针传递,%v\n",p.age)
+	fmt.Printf("指针传递,%v\n", p.age)
 }
 
 func (p person) SetAge2(newAge int) {
 	p.age = newAge
-	fmt.Printf("值传递,%v\n",p.age)
+	fmt.Printf("值传递,%v\n", p.age)
 }
 
-
-func Dream(p person)  {
+func Dream(p person) {
 	fmt.Println(p.name)
 }
 
@@ -505,16 +495,16 @@ func (p person) Dream() {
 	fmt.Printf("%s的梦想是学好Go语言！\n", p.name)
 }
 
-func newPerson(name,city string,age int) *person  {
+func newPerson(name, city string, age int) *person {
 	return &person{
 		name: name,
 		city: city,
-		age: age,
+		age:  age,
 	}
 }
 
 type person struct {
-	name,city string
-	age int
-	money float32
+	name, city string
+	age        int
+	money      float32
 }
