@@ -1,5 +1,5 @@
 module github.com/jasondeepny/gomodtest/v2
 
-go 1.16
+go 1.20
 
-require github.com/PuerkitoBio/goquery v1.8.1
+require github.com/garyburd/redigo v1.6.4
