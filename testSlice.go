@@ -1,12 +1,12 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"reflect"
-	"runtime"
-)
+//import (
+//	"bufio"
+//	"fmt"
+//	"os"
+//	"reflect"
+//	"runtime"
+//)
 
 //func main() {
 
@@ -66,37 +66,37 @@ import (
 //swapp(a, b)
 //fmt.Println(a, b)
 //}
-
-func swapp(a, b int) {
-	a, b = b, a
-	fmt.Println(a, b)
-}
-
-func swap(a, b *int) {
-	*a, *b = *b, *a
-}
-
-func apply(f func(x int, y int) int, a, b int) int {
-	pointer := reflect.ValueOf(f).Pointer()
-	opName := runtime.FuncForPC(pointer).Name()
-	fmt.Printf("Calling func %s with args + (%d + %d) \n", opName, a, b)
-	return f(a, b)
-}
-
-func div(a, b int) (q, r int) {
-	q = a / b
-	r = a % b
-	return q, r
-}
-
-func printFile(n string) {
-	filename, err := os.Open(n)
-	if err != nil {
-		panic(err)
-	}
-	newScanner := bufio.NewScanner(filename)
-
-	for newScanner.Scan() {
-		fmt.Println(newScanner.Text())
-	}
-}
+//
+//func swapp(a, b int) {
+//	a, b = b, a
+//	fmt.Println(a, b)
+//}
+//
+//func swap(a, b *int) {
+//	*a, *b = *b, *a
+//}
+//
+//func apply(f func(x int, y int) int, a, b int) int {
+//	pointer := reflect.ValueOf(f).Pointer()
+//	opName := runtime.FuncForPC(pointer).Name()
+//	fmt.Printf("Calling func %s with args + (%d + %d) \n", opName, a, b)
+//	return f(a, b)
+//}
+//
+//func div(a, b int) (q, r int) {
+//	q = a / b
+//	r = a % b
+//	return q, r
+//}
+//
+//func printFile(n string) {
+//	filename, err := os.Open(n)
+//	if err != nil {
+//		panic(err)
+//	}
+//	newScanner := bufio.NewScanner(filename)
+//
+//	for newScanner.Scan() {
+//		fmt.Println(newScanner.Text())
+//	}
+//}
