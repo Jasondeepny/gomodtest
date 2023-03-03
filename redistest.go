@@ -5,7 +5,7 @@ import (
 	"github.com/garyburd/redigo/redis"
 )
 
-func main() {
+func RedisTest() {
 	c, err := redis.Dial("tcp", "10.1.80.70:6379")
 	redis.DialDatabase(2)
 	if err != nil {
